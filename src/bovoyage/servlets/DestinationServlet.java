@@ -17,7 +17,7 @@ import bovoyage.metier.Destination;
 /**
  * Servlet implementation class DestinationServlet
  */
-@WebServlet("/DestinationServlet")
+@WebServlet(urlPatterns={"/DestinationServlet"}, loadOnStartup=10)
 public class DestinationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

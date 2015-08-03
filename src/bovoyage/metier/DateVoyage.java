@@ -7,10 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "dates_voyages")
+@NamedQueries({ @NamedQuery(name = "DateVoyage.getVoyageById",
+							query = "SELECT dv FROM DateVoyage dv WHERE dv.idDateVoyage = :idDV")
+})
 public class DateVoyage {
 
 	@Id

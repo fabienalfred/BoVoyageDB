@@ -54,6 +54,10 @@ public class PanierServlet extends HttpServlet {
 				remove(panier, Integer.parseInt(request.getParameter("indexVoy")));
 				page = "/panier.jsp";
 				break;
+			case "inscr":
+				
+				page = "/panier.jsp";
+				break;
 			default:
 				break;
 		}

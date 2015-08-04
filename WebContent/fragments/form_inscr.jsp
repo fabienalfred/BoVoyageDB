@@ -11,7 +11,7 @@
 
 <fieldset style="width: 600px">
 	<legend>Inscription</legend>
-	<form action="panier.jsp" method="post">
+	<form action="PanierServlet?action=inscr" method="post">
 		<c:forEach begin="1" end="${param.places }" var="index">
 		Nom : <input name="nom${index }" />
 		Prénom : <input name="prenom${index }" />

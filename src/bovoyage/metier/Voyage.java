@@ -1,11 +1,16 @@
 package bovoyage.metier;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Voyage {
 
 	private String region;
 	private DateVoyage dateVoyage;
 	private int nbPlaces;
-
+	private List<Voyageur> voyageurs = new ArrayList<Voyageur>();
+	
+	
 	public Voyage() {
 	}
 
@@ -37,6 +42,10 @@ public class Voyage {
 
 	public void setNbPlaces(int nbPlaces) {
 		this.nbPlaces = nbPlaces;
+	}
+
+	public List<Voyageur> getVoyageurs() {
+		return voyageurs;
 	}
 
 	@Override

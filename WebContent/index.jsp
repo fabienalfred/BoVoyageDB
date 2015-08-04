@@ -6,6 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+a{
+	text-decoration: none;
+}
+</style>
 <title>Nos offres de voyage</title>
 </head>
 <body>

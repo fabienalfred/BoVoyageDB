@@ -8,8 +8,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
+a{
+	text-decoration: none;
+}
 th, td{
 	text-align: center;
+	width: 50px;
 }
 </style>
 <title>Détails des offres</title>

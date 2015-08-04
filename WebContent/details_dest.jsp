@@ -45,15 +45,14 @@ th, td{
 					<p:places />
 					<button>Ajouter</button>	
 				</form>
-			</td>				
-<%-- 			<td><a href="PanierServlet?action=add&idDest=${dest.idDest }&idVoy=${dv.idDateVoyage }&nbPlaces=1">Ajouter à mon panier</a></td> --%>
+			</td>
 		</tr>
 		</c:forEach>
 	</table>
 	
 	<br />
-	<p:show_panier /><br />
-	<p:accueil />
+	<p:to_panier /><br />
+	<p:to_home />
 
 </body>
 </html>

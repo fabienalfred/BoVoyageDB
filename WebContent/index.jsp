@@ -26,7 +26,7 @@ a{
 		</c:forEach>
 	</c:if>
 
-	<p:show_panier />
+	<p:to_panier />
 	
 </body>
 </html>

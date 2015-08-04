@@ -13,7 +13,7 @@ a{
 }
 th, td{
 	text-align: center;
-	width: 50px;
+	width: 75px;
 }
 </style>
 <title>Mes voyages</title>
@@ -29,6 +29,7 @@ th, td{
 		<tr>
 			<th colspan="4">Voyages</th>
 			<th>Places</th>
+			<th>Prix total</th>
 			<th></th>
 			<th>Supprimer</th>
 		</tr>
@@ -36,18 +37,19 @@ th, td{
 		<c:forEach items="${panier.voyages }" var="voyage" varStatus="status">
 		<tr><fmt:setLocale value="fr_FR"/>
 			<td><b><c:out value="${voyage.region }"></c:out></b></td>
-			<td><fmt:formatDate type="date" value="${voyage.dateVoyage.dateDepart }" dateStyle="long"/></td>
-			<td><fmt:formatDate type="date" value="${voyage.dateVoyage.dateRetour }" dateStyle="long"/></td>
+			<td><fmt:formatDate type="date" value="${voyage.dateVoyage.dateDepart }" dateStyle="short"/></td>
+			<td><fmt:formatDate type="date" value="${voyage.dateVoyage.dateRetour }" dateStyle="short"/></td>
 			<td><fmt:formatNumber value="${voyage.dateVoyage.prixHT }" type="currency"/></td>
-			<td><c:out value="${voyage.nbPlaces }"></c:out>
-				<c:set var="prix" value="${prix+voyage.dateVoyage.prixHT*voyage.nbPlaces }"></c:set>
+			<td><c:out value="${voyage.nbPlaces }" />
+			<td><fmt:formatNumber value="${voyage.dateVoyage.prixHT*voyage.nbPlaces }" type="currency" />
+				<c:set var="prix" value="${prix+voyage.dateVoyage.prixHT*voyage.nbPlaces }" />
 			<td><a href="panier.jsp?inscr=ok&places=${voyage.nbPlaces }">Valider les places</a></td>
 			<td><a href="PanierServlet?action=remove&indexVoy=${status.index }">Supprimer</a></td>
 		</tr>
 		</c:forEach>
 	</table>
 	
-	<h3><c:out value="Prix total de la commande : "></c:out><fmt:formatNumber value="${prix }" type="currency"/></h3>
+	<h3><c:out value="Prix total de la commande : " /><fmt:formatNumber value="${prix }" type="currency" /></h3>
 	</c:otherwise>
 	</c:choose>
 	
@@ -59,7 +61,7 @@ th, td{
 	</c:if>	
 	
 	<br />
-	<p:accueil />	
+	<p:to_home />	
 
 </body>
 </html>

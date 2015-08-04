@@ -19,9 +19,13 @@ public class DateVoyageDAO {
 		em = emf.createEntityManager();
 	}
 	
+	public DateVoyage getVoyageById(int id){
+		return em.find(DateVoyage.class, id);
+	}
 	
+	@Deprecated
 	@SuppressWarnings("unchecked")
-	public List<DateVoyage> getVoyageById(int id){
+	public List<DateVoyage> getVoyagesById(int id){
 		Query query = em.createNamedQuery("DateVoyage.getVoyageById");
 		query.setParameter("idDV", id);
 		return query.getResultList();

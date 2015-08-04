@@ -5,14 +5,17 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bovoyage.dao.DateVoyageDAO;
+import bovoyage.dao.DestinationDAO;
 import bovoyage.metier.DateVoyage;
 import bovoyage.metier.Panier;
+import bovoyage.metier.Voyage;
 
 /**
  * Servlet implementation class PanierServlet
@@ -39,22 +42,16 @@ public class PanierServlet extends HttpServlet {
 				page = "/panier.jsp";
 				break;
 			case "add":
-				DateVoyage voyageToAdd = (dao.getVoyageById(Integer.parseInt(request.getParameter("idVoy")))).get(0);
-				add(panier, voyageToAdd);
+				DestinationDAO destDao = new DestinationDAO();
+				String region = destDao.getDestinationById(Integer.parseInt(request.getParameter("idDest"))).getRegion();
+				DateVoyage dateVoyage = dao.getVoyageById(Integer.parseInt(request.getParameter("idVoy")));
+				add(panier, new Voyage(region, dateVoyage));
 				request.setAttribute("idDest", request.getParameter("idDest"));
 				page = "/DestinationServlet";
 				break;
 			case "remove":
-				for(DateVoyage dv : panier.getVoyages()){
-					System.out.println(dv.getIdDateVoyage());
-				}
-				DateVoyage voyageToRemove = (dao.getVoyageById(Integer.parseInt(request.getParameter("idVoy")))).get(0);
-				remove(panier, voyageToRemove);
-//				request.setAttribute("action", "show");
+				remove(panier, Integer.parseInt(request.getParameter("indexVoy")));
 				page = "/panier.jsp";
-				for(DateVoyage dv : panier.getVoyages()){
-					System.out.println(dv.getIdDateVoyage());
-				}
 				break;
 			default:
 				break;
@@ -63,11 +60,16 @@ public class PanierServlet extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	private void add(Panier panier, DateVoyage voyage) {
+	private void add(Panier panier, Voyage voyage) {
 		panier.add(voyage);
-		
 	}
-	private void remove(Panier panier, DateVoyage voyage) {
+	
+	private void remove(Panier panier, int index){
+		panier.remove(index);
+	}
+	
+	@Deprecated
+	private void remove(Panier panier, Voyage voyage) {
 		 panier.remove(voyage);
 		
 	}

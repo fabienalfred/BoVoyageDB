@@ -15,15 +15,16 @@
 	
 	<table style="width:50%" border="1" >
 		<tr>
-			<th colspan="3">Voyages</th>
+			<th colspan="4">Voyages</th>
 			<th>Supprimer</th>
 		</tr>
-		<c:forEach items="${sessionScope.panier.voyages }" var="voyage">
+		<c:forEach items="${sessionScope.panier.voyages }" var="voyage" varStatus="status">
 		<tr><fmt:setLocale value="fr_FR"/>
-			<td><fmt:formatDate type="date" value="${voyage.dateDepart }" dateStyle="long"/></td>
-			<td><fmt:formatDate type="date" value="${voyage.dateRetour }" dateStyle="long"/></td>
-			<td><fmt:setLocale value="fr_FR"/><fmt:formatNumber value="${voyage.prixHT }" type="currency"/></td>
-			<td><a href="PanierServlet?action=remove&idVoy=${voyage.idDateVoyage }">Supprimer</a></td>
+			<td><b><c:out value="${voyage.region }"></c:out></b></td>
+			<td><fmt:formatDate type="date" value="${voyage.dateVoyage.dateDepart }" dateStyle="long"/></td>
+			<td><fmt:formatDate type="date" value="${voyage.dateVoyage.dateRetour }" dateStyle="long"/></td>
+			<td><fmt:formatNumber value="${voyage.dateVoyage.prixHT }" type="currency"/></td>
+			<td><a href="PanierServlet?action=remove&indexVoy=${status.index }">Supprimer</a></td>
 		</tr>
 		</c:forEach>
 	</table>

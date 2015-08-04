@@ -6,31 +6,31 @@ import java.util.List;
 
 public class Panier {
 
-	private List<DateVoyage> voyages = new ArrayList<>();
+	private List<Voyage> voyages = new ArrayList<>();
 	
 	
 	public Panier() {
 	}
 	
 	
-	public void add(DateVoyage voyage){
+	public void add(Voyage voyage){
 		this.voyages.add(voyage);
 	}
 	
-	public void remove(DateVoyage voyage){
-//		this.voyages.remove(voyage);
-		Iterator<DateVoyage> it = voyages.iterator();
-		while(it.hasNext()){
-			if(it.next().equals(voyage))
-				it.remove();
-		}
+	public void remove(int index){
+		this.voyages.remove(index);
+	}
+	
+	@Deprecated
+	public void remove(Voyage voyage){
+		this.voyages.remove(voyage);
 	}
 	
 	public void clear(){
 		this.voyages.clear();
 	}
 	
-	public List<DateVoyage> getVoyages(){
+	public List<Voyage> getVoyages(){
 		return this.voyages;
 	}
 	

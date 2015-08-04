@@ -26,18 +26,17 @@ public class DestinationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DestinationDAO dao = new DestinationDAO();
-		List<Destination> destinations = new ArrayList<>();
 		String page;
 
 		String idDest = request.getParameter("idDest");
 		if(idDest == null){
-			destinations = dao.getDestinations();
-			request.setAttribute("destinations", destinations);
+//			List<Destination> destinations = dao.getDestinations();
+			request.setAttribute("destinations", dao.getDestinations());
 			page = "/index.jsp";
 		}
 		else{
-			destinations = dao.getDestinationsById(Integer.parseInt(idDest));
-			request.setAttribute("dest", destinations.get(0));
+//			destinations = dao.getDestinationById(Integer.parseInt(idDest));
+			request.setAttribute("dest", dao.getDestinationById(Integer.parseInt(idDest)));
 			page = "/details_dest.jsp";
 		}
 				

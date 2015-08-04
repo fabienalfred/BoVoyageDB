@@ -19,13 +19,18 @@ public class DestinationDAO {
 		em = emf.createEntityManager();
 	}
 	
-	
+	@Deprecated
 	@SuppressWarnings("unchecked")
 	public List<Destination> getDestinations(){
 		Query query = em.createNamedQuery("Destination.getDestinations");
 		return query.getResultList();
 	}
 	
+	public Destination getDestinationById(int id){
+		return em.find(Destination.class, id);
+	}
+	
+	@Deprecated
 	@SuppressWarnings("unchecked")
 	public List<Destination> getDestinationsById(int id){
 		Query query = em.createNamedQuery("Destination.getDestinationsById");

@@ -24,14 +24,20 @@
 			<th>Départ</th>
 			<th>Retour</th>
 			<th>Prix</th>
-			<th></th>
+			<th>Places</th>
 		</tr>
 		<c:forEach items="${dest.datesVoyages }" var="dv">
 		<tr><fmt:setLocale value="fr_FR"/>
 			<td><fmt:formatDate type="date" value="${dv.dateDepart }" dateStyle="long"/></td>
 			<td><fmt:formatDate type="date" value="${dv.dateRetour }" dateStyle="long"/></td>
 			<td><fmt:formatNumber value="${dv.prixHT }" type="currency"/></td>
-			<td><a href="PanierServlet?action=add&idDest=${dest.idDest }&idVoy=${dv.idDateVoyage }">Ajouter à mon panier</a></td>
+			<td>
+				<form action="PanierServlet?action=add&idDest=${dest.idDest }&idVoy=${dv.idDateVoyage }" method="post">
+					<p:places />
+					<button>Ajouter</button>	
+				</form>
+			</td>				
+<%-- 			<td><a href="PanierServlet?action=add&idDest=${dest.idDest }&idVoy=${dv.idDateVoyage }&nbPlaces=1">Ajouter à mon panier</a></td> --%>
 		</tr>
 		</c:forEach>
 	</table>

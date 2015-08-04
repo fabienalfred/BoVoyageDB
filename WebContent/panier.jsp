@@ -16,6 +16,7 @@
 	<table style="width:50%" border="1" >
 		<tr>
 			<th colspan="4">Voyages</th>
+			<th>Places</th>
 			<th>Supprimer</th>
 		</tr>
 		<c:forEach items="${sessionScope.panier.voyages }" var="voyage" varStatus="status">
@@ -24,6 +25,7 @@
 			<td><fmt:formatDate type="date" value="${voyage.dateVoyage.dateDepart }" dateStyle="long"/></td>
 			<td><fmt:formatDate type="date" value="${voyage.dateVoyage.dateRetour }" dateStyle="long"/></td>
 			<td><fmt:formatNumber value="${voyage.dateVoyage.prixHT }" type="currency"/></td>
+			<td><c:out value="${voyage.nbPlaces }"></c:out>
 			<td><a href="PanierServlet?action=remove&indexVoy=${status.index }">Supprimer</a></td>
 		</tr>
 		</c:forEach>

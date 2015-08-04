@@ -9,10 +9,10 @@ public class Voyage {
 	public Voyage() {
 	}
 
-	public Voyage(String region, DateVoyage dateVoyage) {
+	public Voyage(String region, DateVoyage dateVoyage, int nbPlaces) {
 		this.region = region;
 		this.dateVoyage = dateVoyage;
-//		this.nbPlaces = nbPlaces;
+		this.nbPlaces = nbPlaces;
 	}
 
 	public String getRegion() {
@@ -31,13 +31,13 @@ public class Voyage {
 		this.dateVoyage = dateVoyage;
 	}
 
-//	public int getNbPlaces() {
-//		return nbPlaces;
-//	}
-//
-//	public void setNbPlaces(int nbPlaces) {
-//		this.nbPlaces = nbPlaces;
-//	}
+	public int getNbPlaces() {
+		return nbPlaces;
+	}
+
+	public void setNbPlaces(int nbPlaces) {
+		this.nbPlaces = nbPlaces;
+	}
 
 	@Override
 	public String toString() {

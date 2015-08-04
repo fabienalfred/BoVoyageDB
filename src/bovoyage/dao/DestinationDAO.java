@@ -19,7 +19,6 @@ public class DestinationDAO {
 		em = emf.createEntityManager();
 	}
 	
-	@Deprecated
 	@SuppressWarnings("unchecked")
 	public List<Destination> getDestinations(){
 		Query query = em.createNamedQuery("Destination.getDestinations");

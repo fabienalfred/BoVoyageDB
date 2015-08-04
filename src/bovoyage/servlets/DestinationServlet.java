@@ -30,12 +30,10 @@ public class DestinationServlet extends HttpServlet {
 
 		String idDest = request.getParameter("idDest");
 		if(idDest == null){
-//			List<Destination> destinations = dao.getDestinations();
 			request.setAttribute("destinations", dao.getDestinations());
 			page = "/index.jsp";
 		}
 		else{
-//			destinations = dao.getDestinationById(Integer.parseInt(idDest));
 			request.setAttribute("dest", dao.getDestinationById(Integer.parseInt(idDest)));
 			page = "/details_dest.jsp";
 		}

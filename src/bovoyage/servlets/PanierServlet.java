@@ -42,7 +42,6 @@ public class PanierServlet extends HttpServlet {
 				page = "/panier.jsp";
 				break;
 			case "add":
-				System.out.println("idDest : "+request.getParameter("idDest")+", idVoy: "+request.getParameter("idVoy")+", nb places : "+request.getParameter("nbPlaces"));
 				DestinationDAO destDao = new DestinationDAO();
 				String region = destDao.getDestinationById(Integer.parseInt(request.getParameter("idDest"))).getRegion();
 				DateVoyage dateVoyage = dao.getVoyageById(Integer.parseInt(request.getParameter("idVoy")));
@@ -68,12 +67,6 @@ public class PanierServlet extends HttpServlet {
 	
 	private void remove(Panier panier, int index){
 		panier.remove(index);
-	}
-	
-	@Deprecated
-	private void remove(Panier panier, Voyage voyage) {
-		 panier.remove(voyage);
-		
 	}
 	
 	private void clear(Panier panier){

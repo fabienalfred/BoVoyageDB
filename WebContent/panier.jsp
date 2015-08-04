@@ -7,6 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+th, td{
+	text-align: center;
+}
+</style>
 <title>Mes voyages</title>
 </head>
 <body>
@@ -17,6 +22,7 @@
 		<tr>
 			<th colspan="4">Voyages</th>
 			<th>Places</th>
+			<th></th>
 			<th>Supprimer</th>
 		</tr>
 		<c:forEach items="${sessionScope.panier.voyages }" var="voyage" varStatus="status">
@@ -26,12 +32,20 @@
 			<td><fmt:formatDate type="date" value="${voyage.dateVoyage.dateRetour }" dateStyle="long"/></td>
 			<td><fmt:formatNumber value="${voyage.dateVoyage.prixHT }" type="currency"/></td>
 			<td><c:out value="${voyage.nbPlaces }"></c:out>
+			<td><a href="panier.jsp?inscr=ok&places=${voyage.nbPlaces }">Valider les places</a></td>
 			<td><a href="PanierServlet?action=remove&indexVoy=${status.index }">Supprimer</a></td>
 		</tr>
 		</c:forEach>
 	</table>
+	
 	<br />
-
+	<c:if test="${not empty param.inscr }">
+		<jsp:include page="fragments/form_inscr.jsp">
+			<jsp:param value="${param.places }" name="places"/>
+		</jsp:include>
+	</c:if>	
+	
+	<br />
 	<p:accueil />	
 
 </body>

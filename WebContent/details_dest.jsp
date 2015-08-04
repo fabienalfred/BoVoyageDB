@@ -7,6 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+th, td{
+	text-align: center;
+}
+</style>
 <title>Détails des offres</title>
 </head>
 <body>
@@ -32,7 +37,7 @@
 			<td><fmt:formatDate type="date" value="${dv.dateRetour }" dateStyle="long"/></td>
 			<td><fmt:formatNumber value="${dv.prixHT }" type="currency"/></td>
 			<td>
-				<form action="PanierServlet?action=add&idDest=${dest.idDest }&idVoy=${dv.idDateVoyage }" method="post">
+				<form action="PanierServlet?action=add&idDest=${dest.idDest }&idVoy=${dv.idDateVoyage }&form_inscr=true" method="post">
 					<p:places />
 					<button>Ajouter</button>	
 				</form>

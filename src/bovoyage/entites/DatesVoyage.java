@@ -1,5 +1,6 @@
-package bovoyage.metier;
+package bovoyage.entites;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,10 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "dates_voyages")
-@NamedQueries({ @NamedQuery(name = "DateVoyage.getVoyageById",
-							query = "SELECT dv FROM DateVoyage dv WHERE dv.idDateVoyage = :idDV")
-})
-public class DateVoyage {
+public class DatesVoyage implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,7 +26,7 @@ public class DateVoyage {
 	private Date dateRetour;
 	private double prixHT;
 
-	public DateVoyage() {
+	public DatesVoyage() {
 	}
 
 	public int getIdDateVoyage() {

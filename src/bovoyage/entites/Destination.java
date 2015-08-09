@@ -1,4 +1,4 @@
-package bovoyage.metier;
+package bovoyage.entites;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import javax.persistence.Table;
 @NamedQueries({ @NamedQuery(name = "Destination.getDestinations", 
 							query = "FROM Destination d ORDER BY d.region"),
 				@NamedQuery(name = "Destination.getDestinationsById", 
-							query = "SELECT d FROM Destination d WHERE d.idDest = :id") })
+							query = "SELECT d FROM Destination d WHERE d.idDest = :id")})
 public class Destination {
 
 	@Id
@@ -33,7 +33,7 @@ public class Destination {
 	private String description;
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ke_destination")
-	private List<DateVoyage> datesVoyages = new ArrayList<>();
+	private List<DatesVoyage> datesVoyages = new ArrayList<>();
 	@ElementCollection
 	@CollectionTable(name = "images", joinColumns = @JoinColumn(name = "ke_destination"))
 	@Column(name = "image")
@@ -66,11 +66,11 @@ public class Destination {
 		this.description = description;
 	}
 
-	public List<DateVoyage> getDatesVoyages() {
+	public List<DatesVoyage> getDatesVoyages() {
 		return datesVoyages;
 	}
 
-	public void setDatesVoyages(List<DateVoyage> dateVoyages) {
+	public void setDatesVoyages(List<DatesVoyage> dateVoyages) {
 		this.datesVoyages = dateVoyages;
 	}
 

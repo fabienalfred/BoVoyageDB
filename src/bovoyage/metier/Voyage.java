@@ -1,25 +1,19 @@
 package bovoyage.metier;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Voyage {
+import bovoyage.entites.DatesVoyage;
+
+public class Voyage implements Serializable {
 
 	private String region;
-	private DateVoyage dateVoyage;
+	private DatesVoyage datesVoyage;
 	private int nbPlaces;
 	private List<Voyageur> voyageurs = new ArrayList<Voyageur>();
 	
 	
-	public Voyage() {
-	}
-
-	public Voyage(String region, DateVoyage dateVoyage, int nbPlaces) {
-		this.region = region;
-		this.dateVoyage = dateVoyage;
-		this.nbPlaces = nbPlaces;
-	}
-
 	public String getRegion() {
 		return region;
 	}
@@ -28,12 +22,12 @@ public class Voyage {
 		this.region = region;
 	}
 
-	public DateVoyage getDateVoyage() {
-		return dateVoyage;
+	public DatesVoyage getDatesVoyage() {
+		return datesVoyage;
 	}
 
-	public void setDateVoyage(DateVoyage dateVoyage) {
-		this.dateVoyage = dateVoyage;
+	public void setDatesVoyage(DatesVoyage dateVoyage) {
+		this.datesVoyage = dateVoyage;
 	}
 
 	public int getNbPlaces() {

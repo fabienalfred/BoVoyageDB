@@ -1,15 +1,12 @@
 package bovoyage.metier;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Panier {
+public class Panier implements Serializable{
 
 	private List<Voyage> voyages = new ArrayList<>();
-	
-	
-	public Panier() {
-	}
 	
 	
 	public void add(Voyage voyage){

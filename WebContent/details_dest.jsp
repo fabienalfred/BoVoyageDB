@@ -8,6 +8,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet"
+	href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-orange.min.css" />
+<script
+	src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <title>Détails des offres</title>
 </head>
 <body>
@@ -40,8 +46,16 @@
 							<form
 								action="FrontControllerServlet?cde=add&voy=${status.index }&form_inscr=true"
 								method="post">
+<!-- 								<button -->
+<!-- 									class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"> -->
+<!-- 									<i class="material-icons">remove</i> -->
+<!-- 								</button> -->
 								<p:places />
-								<button>Ajouter</button>
+								<button
+									class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+									<i class="material-icons">add</i>
+								</button>
+<!-- 								<button>Ajouter</button> -->
 							</form>
 						</td>
 					</tr>
